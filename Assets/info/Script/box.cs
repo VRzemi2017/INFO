@@ -8,12 +8,15 @@ public class box : MonoBehaviour {
 	float change_box_size = 0.1f;	//にゅっと動いてもらうため
 	int timer = 0;
 	public int display_time = 0;	//表示時間
+    public int text_display_time = 0;   //テキストの表示開始時間
 	public float stretch_speed = 0;	//にゅっと動く速度
+    public GameObject text; //表示するテキスト
 	
 	// Use this for initialization
 	void Start () {
 		transform.localScale =  new Vector3( 0, 0, 0);
-	}
+        text.SetActive( false );
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -29,6 +32,12 @@ public class box : MonoBehaviour {
 			transform.localScale =  new Vector3( box_size, box_size, box_size);
 			timer++;
 		}
+        
+        if ( text_display_time <= timer & timer <= ( display_time - text_display_time ) ) {
+            text.SetActive( true );
+        } else {
+            text.SetActive( false );
+        }
 		
 		if ( timer == display_time ) {
 			hantei = 2;
@@ -44,7 +53,8 @@ public class box : MonoBehaviour {
 				hantei = 0;
 				timer = 0;
 				box_size = 0;
-			}
+                transform.localScale = new Vector3( 0, 0, 0 );
+            }
 		}
 	}
 }
