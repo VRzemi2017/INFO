@@ -2,27 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using System;   //enum用
+
 public class box : MonoBehaviour {
-	int hantei = 0;
-	float box_size = 0;
+	int hantei = 0;     //伸縮させるため
+	float box_size = 0; //サイズ
 	float change_box_size = 0.1f;	//にゅっと動いてもらうため
-	int timer = 0;
+	int timer = 0;      //ボタンを押してからの時間計測
 	public int display_time = 0;	//表示時間
     public int text_display_time = 0;   //テキストの表示開始時間
 	public float stretch_speed = 0;	//にゅっと動く速度
     public GameObject text; //表示するテキスト
-	
-	// Use this for initialization
-	void Start () {
+
+    public TextMesh stringTextMesh;     //表示するテキスト
+
+    // Use this for initialization
+    void Start () {
 		transform.localScale =  new Vector3( 0, 0, 0);
         text.SetActive( false );
     }
 	
 	// Update is called once per frame
 	void Update () {
-		if ( hantei == 0 && Input.GetKeyDown(KeyCode.B)) {	//とりあえずBボタン
+		if ( hantei == 0 && Input.anyKeyDown ) {	//とりあえずBボタン
+            UpdateText( );
 			hantei = 1;
-		}
+        }
 
 		//表示
 		if ( hantei == 1 ) {
@@ -57,4 +62,8 @@ public class box : MonoBehaviour {
             }
 		}
 	}
+
+    void UpdateText( ) {    //テキストの中身
+        stringTextMesh.text = "何かのキーを押された気がする";
+    }
 }
