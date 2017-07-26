@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Battery : MonoBehaviour {
-    public float speed = 0.0f;
+    public int speed = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -13,16 +13,16 @@ public class Battery : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if( Input.GetKey(KeyCode.W) ){
-			transform.position += new Vector3(-speed, 0.0f , 0.0f) * Time.deltaTime;
-		}
+            transform.Translate( Vector3.forward * Time.deltaTime * speed );
+        }
 		if( Input.GetKey(KeyCode.S) ){
-			transform.position += new Vector3( speed, 0.0f , 0.0f) * Time.deltaTime;
-		}
+            transform.Translate( Vector3.back * Time.deltaTime * speed );
+        }
 		if( Input.GetKey(KeyCode.A) ){
-			transform.position += new Vector3(0.0f , 0.0f , -speed ) * Time.deltaTime;
-		}
+            transform.Translate( Vector3.left * Time.deltaTime * speed );
+        }
 		if( Input.GetKey(KeyCode.D) ){
-			transform.position += new Vector3(0.0f , 0.0f , speed ) * Time.deltaTime;
-		}
+            transform.Translate( Vector3.right * Time.deltaTime * speed );
+        }
 	}
 }
