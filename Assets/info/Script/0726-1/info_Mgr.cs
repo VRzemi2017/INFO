@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class message_call : MonoBehaviour {
-    //呼び出すメッセージウィンドウ
-    public GameObject message_window;
-
-    //ウィンドウの位置
-    public Transform message_pos;
+public class info_Mgr : MonoBehaviour {
+    public GameObject message_window;   //呼び出すメッセージウィンドウ
+    
+    public Transform message_pos;       //ウィンドウの位置
 
     // Use this for initialization
     void Start( ) {
-
     }
 
     // Update is called once per frame
@@ -22,7 +19,7 @@ public class message_call : MonoBehaviour {
             GameObject message_window_copy = GameObject.Instantiate( message_window ) as GameObject;
 
             //ウィンドウの位置を調整
-            message_window.transform.position = message_pos.position;
+            message_window_copy.transform.position = message_pos.position;
         }
     }
 }
