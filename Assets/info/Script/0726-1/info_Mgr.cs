@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class info_Mgr : MonoBehaviour {
     public GameObject message_window;   //呼び出すメッセージウィンドウ
-    
-    public Transform message_pos;       //ウィンドウの位置
+
+	public Transform camera_trans;       //ウィンドウの位置
     // Use this for initialization
     void Start( ) {
     }
@@ -18,8 +18,20 @@ public class info_Mgr : MonoBehaviour {
             GameObject message_window_copy = GameObject.Instantiate( message_window ) as GameObject;
 
             //ウィンドウの位置を調整
-            message_window_copy.transform.position = message_pos.position;
-            message_window_copy.transform.rotation = message_pos.rotation;
+			message_window_copy.transform.position = camera_trans.position;
+			message_window_copy.transform.rotation = camera_trans.rotation;
         }
     }
+	public void hit ( ) {
+		Debug.Log ("hittttttttttttttttttttttttt");
+		// カメラに追従
+		//GameObject message_window_copy = GameObject.Instantiate (message_window) as GameObject;
+		//ウィンドウの位置を調整
+		//message_window_copy.transform.position = message_pos.position;
+		//message_window_copy.transform.rotation = message_pos.rotation;
+		//　位置固定
+		Vector3 angle = camera_trans.rotation.eulerAngles;
+		Quaternion qua = Quaternion.Euler (new Vector3 (0, angle.y, 0));
+		Instantiate( message_window, camera_trans.position + ( Vector3.back * 10f ), qua );
+	}
 }

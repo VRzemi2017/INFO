@@ -72,6 +72,6 @@ public class stretch_window : MonoBehaviour {
     }
 
     void UpdateText( ) {    //テキストの中身
-        stringTextMesh.text = "何かのキーを押された気がする";
+        stringTextMesh.text = "ワープ成功したお";
     }
 }
