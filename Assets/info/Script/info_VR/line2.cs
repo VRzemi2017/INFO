@@ -66,7 +66,8 @@ public class line2 : MonoBehaviour {
                 if ( device.GetTouchDown( SteamVR_Controller.ButtonMask.Trigger ) && ProjectileColor_judge == false ) {
                     player.transform.position = hit.point;
 
-					Call (); // message window 呼び出し
+                    info_mgr1 call = GameObject.Find( "Info_Mgr" ).GetComponent<info_mgr1>( );
+                    call.call_info( ); // message window 呼び出し
                 }
 
                 //角度の判断
@@ -119,18 +120,17 @@ public class line2 : MonoBehaviour {
     }
 
 	//===========================================================//
-	void Call( ) {
+	/*void info_Call( ) {
 		float window_y = -0.7f;		//ウィンドウの高さ
 		GameObject camera = GameObject.Find ("Camera (eye)");
 		Vector3 pos = camera.transform.position;
-		Debug.Log ("camera" + pos);
 		Vector3 front = camera.transform.forward * 2.0f;
 		Quaternion rot = camera.transform.rotation;
 	//	info_Mgr call = GameObject.Find( "Info_Mgr" ).GetComponent<info_Mgr>( );
 	//	call.Generat( pos, rot, window_y, front );
 		info_mgr1 call = GameObject.Find( "Info_Mgr" ).GetComponent<info_mgr1>( );
 		call.call_info ();
-	}
+	}*/
 
 	//===========================================================//
 }
