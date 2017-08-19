@@ -21,7 +21,7 @@ public class Switch : MonoBehaviour {
         UpdateText( );
 
         if ( state == 1 & Input.GetKeyDown( KeyCode.KeypadEnter ) ) {
-            SceneManager.LoadScene( "Sence" );
+            SceneManager.LoadScene( 1 );
         }
 	}
 
@@ -29,7 +29,7 @@ public class Switch : MonoBehaviour {
         if ( state == 0 ) {
             stringTextMesh.text = "待機中";
         } else if ( state == 1 ) {
-            stringTextMesh.text = "準備完了";
+            stringTextMesh.text = "ゲームが開始されるまでお待ちください";
         }        
     }
 }
