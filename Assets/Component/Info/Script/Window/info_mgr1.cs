@@ -1,13 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class info_mgr1 : MonoBehaviour {
-	[SerializeField] GameObject window_single = null;
+
+    [SerializeField] GameObject window_single = null;
     public int state_num = 0;
 
+    int start_tmp = 0;
+    int timeup_tmp = 0;
+    int result_tmp= 0;
+    int state_tmp = 0;
+
+    int call_num = 0;
+
     public GameObject state_window;   //ゲームスタート、ゲームオーバー
+    public GameObject result_window;        //リザルト画面
     int time = 0;
 
     void Start () {
@@ -15,23 +25,35 @@ public class info_mgr1 : MonoBehaviour {
 		window_single = null;
 		window_single = GameObject.Find ("Message_quad 2(Clone)");
 
-        State_call();
+        start_tmp = (int)MainManager.GameState.GAME_START;
+        timeup_tmp = (int)MainManager.GameState.GAME_TIMEUP;
+        result_tmp = (int)MainManager.GameState.GAME_RESULT;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		//window.SetActive (false);
-		if (Input.GetKey(KeyCode.W)) {
-			call_info ();
-		}
 
-        time++;
-        if (time == 600)
+    // Update is called once per frame
+    void Update () {
+        state_tmp = (int)MainManager.CurrentState;
+        
+        if ( call_num == 0 & state_tmp == start_tmp)
+        {
+            state_num = 0;
+            State_call();
+            call_num = 1;
+        } else if ( call_num == 1 & state_tmp == timeup_tmp)
         {
             state_num = 1;
             State_call();
+            call_num = 2;
+        } else if ( call_num == 2 & state_tmp == result_tmp )
+        {
+            Result_call();
+            call_num = 0;
         }
 
+        //window.SetActive (false);
+        if (Input.GetKey(KeyCode.W)) {
+			call_info ();
+		}
         
     }
 
@@ -74,5 +96,10 @@ public class info_mgr1 : MonoBehaviour {
         Quaternion qua = Quaternion.Euler(rot);*/
         // 生成
         Instantiate(state_window/*, pos, qua*/);        //呼び出すウィンドウを、どの位置で、どの角度で。
+    }
+
+    void Result_call( )
+    {
+        Instantiate(result_window/*, pos, qua*/);
     }
 }

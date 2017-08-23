@@ -98,10 +98,6 @@ public class StateStr : MonoBehaviour {
             if (size <= 0.01)
             {   //サイズの初期化
                 transform.localScale = new Vector3(0, 0, 0);
-                if (state_number == 1)
-                {
-                    Instantiate(result_window);
-                }
 
                 Object.Destroy(parent);       //プレハブ消去
             }
