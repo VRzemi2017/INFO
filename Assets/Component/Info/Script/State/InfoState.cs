@@ -15,13 +15,16 @@ public class InfoState : MonoBehaviour {
         info_mgr = GameObject.Find("Info_Mgr");
         
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         Info_mgr1 = info_mgr.GetComponent<info_mgr1/*info_Mgr*/>();
         state_number = Info_mgr1.state_num;
 
         UpdateText();
+
+        
     }
 
     void UpdateText( )
