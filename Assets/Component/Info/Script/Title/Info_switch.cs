@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Switch : MonoBehaviour {
+public class Info_switch : MonoBehaviour {
     //public GameObject text;             //表示するテキスト
     public TextMesh stringTextMesh;     //表示するテキスト
     int state = 0;                      //0：準備中　1：準備完了

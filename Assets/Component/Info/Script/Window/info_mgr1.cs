@@ -54,6 +54,7 @@ public class info_mgr1 : MonoBehaviour {
 
         //window.SetActive (false);
 
+        /*
         if (Input.GetKeyDown(KeyCode.E))
         {
             Instantiate(state_stick);        //呼び出すウィンドウを、どの位置で、どの角度で。
@@ -66,6 +67,7 @@ public class info_mgr1 : MonoBehaviour {
         {
             Result_call();
         }
+        */
         
     }
 
