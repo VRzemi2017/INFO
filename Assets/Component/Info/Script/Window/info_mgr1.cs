@@ -66,7 +66,7 @@ public class info_mgr1 : MonoBehaviour {
         {
             Result_call();
         }
-
+        
     }
 
     public void call_info( ) {

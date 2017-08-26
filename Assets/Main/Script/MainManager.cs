@@ -40,4 +40,9 @@ public class MainManager : MonoBehaviour {
             Debug.Log(CurrentState);
         }
     }
+
+    public static void ChangeState(GameState state)
+    {
+        CurrentState = state;
+    }
 }

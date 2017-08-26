@@ -98,7 +98,15 @@ public class StateStr : MonoBehaviour {
             if (size <= 0.01)
             {   //サイズの初期化
                 transform.localScale = new Vector3(0, 0, 0);
-
+                if (state_number == 0 )
+                {
+                    MainManager.ChangeState(MainManager.GameState.GAME_PLAYING);
+                    Debug.Log(MainManager.CurrentState);
+                } else if ( state_number == 1 )
+                {
+                    MainManager.ChangeState(MainManager.GameState.GAME_RESULT);
+                    Debug.Log(MainManager.CurrentState);
+                } 
                 Object.Destroy(parent);       //プレハブ消去
             }
         }
