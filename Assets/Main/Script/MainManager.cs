@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 using System.Linq;
 
 public class MainManager : MonoBehaviour {
-
     public enum GameState
     {
         GAME_INIT,
@@ -44,5 +43,15 @@ public class MainManager : MonoBehaviour {
     public static void ChangeState(GameState state)
     {
         CurrentState = state;
+    }
+
+    public static GameObject LocalPlayer()
+    {
+        return GameObject.Find("local");
+    }
+
+    public static GameObject RemotePlayer()
+    {
+        return GameObject.Find("remote");
     }
 }
