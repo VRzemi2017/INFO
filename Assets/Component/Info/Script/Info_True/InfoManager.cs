@@ -8,8 +8,7 @@ public class InfoManager : MonoBehaviour {
     public enum InfoCase
     {
         INFO_WAIT,  //待機
-
-        INFO_TEST,
+        
         INFO_DAMAGE,
         INFO_GET,
 
@@ -17,6 +16,7 @@ public class InfoManager : MonoBehaviour {
     }
     public static InfoCase Info_Case = InfoCase.INFO_WAIT;      //待機
     public GameObject called_window;           //他スクリプトから呼び出されるウィンドウ
+    public TextMesh info_text;
 
     //ゲームスタート、タイムアップ、リザルト呼び出し用
     public GameObject state_window;   //ゲームスタート、タイムアップ用のウィンドウ
@@ -63,22 +63,17 @@ public class InfoManager : MonoBehaviour {
         }
 
         //infomationを呼び出す
-        if ( Info_Case == InfoCase.INFO_TEST )
-        {
-            Debug.Log("ちくわ大明神");
-            Info_Case = InfoCase.INFO_WAIT;
-        }
         if (Info_Case == InfoCase.INFO_DAMAGE)
         {
-            Debug.Log("石取られた");
             Info_Called();
             Info_Case = InfoCase.INFO_WAIT;
+            info_text.text = ("石取られた");
         }
         if (Info_Case == InfoCase.INFO_GET)
         {
-            Debug.Log("石拾った");
             Info_Called();
             Info_Case = InfoCase.INFO_WAIT;
+            info_text.text = ("石拾った");
         }
     }
 

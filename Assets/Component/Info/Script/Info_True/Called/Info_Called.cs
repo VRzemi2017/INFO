@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Info_Called : MonoBehaviour {
+    InfoManager infoManager;
+    public TextMesh info_mes;
+    GameObject infoMgr;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+        infoMgr = GameObject.Find("InfoMgr");
+
         float info_pos_y = 0.01f;     //ウィンドウの高さ
         GameObject camera = GameObject.Find("Camera (eye)");  //プレイヤーのカメラの取得
         Vector3 camera_pos = camera.transform.position;         //プレイヤーのカメラ座標
@@ -21,6 +26,9 @@ public class Info_Called : MonoBehaviour {
 
         this.transform.position = pos;        //ウィンドウのポジション
         this.transform.rotation = qua;        //ウィンドウの角度
+
+        infoManager = infoMgr.GetComponent<InfoManager>();
+        info_mes.text = infoManager.info_text.text;
     }
 	
 	// Update is called once per frame

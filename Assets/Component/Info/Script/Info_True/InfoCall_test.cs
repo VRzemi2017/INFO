@@ -11,10 +11,6 @@ public class InfoCall_test : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ( Input.GetKeyDown( KeyCode.Keypad0 ) )
-        {
-            InfoManager.CallCase(InfoManager.InfoCase.INFO_TEST);
-        }
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             InfoManager.CallCase(InfoManager.InfoCase.INFO_DAMAGE);
