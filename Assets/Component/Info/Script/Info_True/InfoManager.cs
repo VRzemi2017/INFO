@@ -28,9 +28,19 @@ public class InfoManager : MonoBehaviour {
     public int state_pattern = 0;  //スタートとタイムアップの使い分け用
     int tmp_case = 0;       //３ケースの使い分け用
 
+    public TextMesh player1_name;
+    GameObject P1;
+    User1 user1;
+
+    public TextMesh player2_name;
+    GameObject P2;
+    User2 user2;
+
 
     // Use this for initialization
     void Start () {
+        P1 = GameObject.Find("Player_1");
+        P2 = GameObject.Find("Player_2");
 
         //MainManagerからGameStateを参照
         start_tmp = (int)MainManager.GameState.GAME_START;
@@ -40,6 +50,11 @@ public class InfoManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        user1 = P1.GetComponent<User1>();
+        player1_name.text = user1.user1_name.text;
+
+        user2 = P2.GetComponent<User2>();
+        player2_name.text = user2.user2_name.text;
 
         //スタート、タイムアップ、リザルトを呼び出す
         state_tmp = (int)MainManager.CurrentState;
@@ -96,5 +111,10 @@ public class InfoManager : MonoBehaviour {
     public static void CallCase(InfoCase state)     //他スクリプトからのinfomation呼び出し用
     {
         Info_Case = state;
+    }
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
     }
 }

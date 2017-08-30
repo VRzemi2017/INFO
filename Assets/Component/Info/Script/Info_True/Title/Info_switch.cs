@@ -71,6 +71,15 @@ public class Info_switch : MonoBehaviour {
         }
 	}
 
+    public int Player1Ready()
+    {
+        return state_p1;
+    }
+    public int Player2Ready()
+    {
+        return state_p2;
+    }
+
     void UpdateText( ) {    //テキストの中身
         if ( state_p1 == 0 ) {
             p1_state.text = "待機中";
