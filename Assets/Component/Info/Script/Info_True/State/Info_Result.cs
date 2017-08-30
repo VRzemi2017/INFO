@@ -28,7 +28,7 @@ public class Info_Result : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.RightShift))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 }

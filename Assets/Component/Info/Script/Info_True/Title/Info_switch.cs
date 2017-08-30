@@ -20,8 +20,8 @@ public class Info_switch : MonoBehaviour {
         }
         UpdateText( );
 
-        if ( state == 1 & Input.GetKeyDown( KeyCode.KeypadEnter ) ) {
-            SceneManager.LoadScene( 1 );
+        if ( state == 1 & Input.GetKeyDown( KeyCode.Return ) ) {
+            SceneManager.LoadScene( 2 );
         }
 	}
 
