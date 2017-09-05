@@ -12,10 +12,10 @@ public class Info_Scoredata : MonoBehaviour {
 	public Text evaluationText;
 	public TextMesh GM_Comment;
 
-	public int get_score = 0;
-	public int damage_hit = 0;
-	public int teleport_times = 0;
-	public int event_times = 0;
+	int get_score = 0;
+    int damage_hit = 0;
+	int teleport_times = 0;
+	int event_times = 0;
 	public int Evaluation = 0;
 
 	// Use this for initialization
@@ -38,10 +38,12 @@ public class Info_Scoredata : MonoBehaviour {
 	}
 
 	void SetScore(){
-		scoreText.text = string.Format( "宝石回収数：{0}",get_score );
+        get_score = InfoManager.pickup;
+        scoreText.text = string.Format( "宝石回収数：{0}",get_score );
 	}
 	void SetDamage(){
-		damageText.text = string.Format( "被ダメージ：{0}",damage_hit );
+        damage_hit = InfoManager.rob;
+        damageText.text = string.Format( "被ダメージ：{0}",damage_hit );
 	}
 	void SetTeleport(){
 		teleportText.text = string.Format( "テレポート回数：{0}", teleport_times );
@@ -50,7 +52,6 @@ public class Info_Scoredata : MonoBehaviour {
 		eventText.text = string.Format( "イベント：{0}", event_times );
 	}
 	void SetEvaluation(){
-		
 		evaluationText.text = string.Format ("評価：{0}", Evaluation);
 	}
 
