@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InfoCall_test : MonoBehaviour {
-
+    public int get_time = 0;
 	// Use this for initialization
 	void Start () {
 		
@@ -18,6 +18,7 @@ public class InfoCall_test : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Keypad2))
         {
             InfoManager.CallCase(InfoManager.InfoCase.INFO_GET);
+            
         }
     }
 }
