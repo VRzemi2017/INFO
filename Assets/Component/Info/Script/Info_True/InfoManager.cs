@@ -32,7 +32,7 @@ public class InfoManager : MonoBehaviour {
     public int rob_score;// 宝石を取られた時のスコア（器）
     public static int pickup; 　// 宝石を拾った時のスコア
     public static int rob; // 宝石を取られた時のスコア
-
+    public static int teleport; //テレポテト回数
     // Use this for initialization
     void Start () {
         //MainManagerからGameStateを参照
@@ -88,6 +88,8 @@ public class InfoManager : MonoBehaviour {
     void Result_Call()
     {
         Instantiate(result_window);     //呼び出すウィンドウ
+        result_window.GetComponent<Info_Result>().Event = 0;
+
     }
 
     void Info_Called()

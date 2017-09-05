@@ -30,8 +30,12 @@ public class ResultManager : MonoBehaviour {
 
     void Start()
     {
-        comment.Add("yeah");
+        /*comment.Add("yeah");
 
-        spots.Add(new SpotControl());
+        spots.Add(new SpotControl());*/
+    }
+    void Update()
+    {
+
     }
 }
