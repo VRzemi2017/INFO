@@ -88,7 +88,6 @@ public class InfoManager : MonoBehaviour {
     void Result_Call()
     {
         Instantiate(result_window);     //呼び出すウィンドウ
-        result_window.GetComponent<Info_Result>().Event = 0;
 
     }
 

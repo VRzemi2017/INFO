@@ -77,12 +77,12 @@ public class Info_switch : MonoBehaviour {
         }
     }
 
-    void AdjustTitle( )
+    private void AdjustTitle( )
     {
         float info_pos_y = 1.0f;     //ウィンドウの高さ
         GameObject camera = GameObject.Find("Camera (eye)");  //プレイヤーのカメラの取得
         Vector3 camera_pos = camera.transform.position;         //プレイヤーのカメラ座標
-        Vector3 front = camera.transform.forward * 100f;        //カメラの正面*距離
+        Vector3 front = camera.transform.forward * 5f;        //カメラの正面*距離
         Quaternion camera_rot = camera.transform.rotation;      //プレイヤーのカメラの角度
 
         // position
